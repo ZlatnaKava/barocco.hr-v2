@@ -9,6 +9,7 @@ require("dotenv").config({
 })
 
 module.exports = {
+  pathPrefix: "/barocco.hr-v2",
   plugins: [
     `gatsby-plugin-postcss`,
     {
@@ -18,6 +19,14 @@ module.exports = {
         protocol: process.env.GATSBY_WP_PROTOCOL,
         hostingWPCOM: false,
         useACF: true,
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/pages",
+          "**/media",
+          "**/tags",
+          "**/taxonomies",
+        ],
       },
     },
   ],
