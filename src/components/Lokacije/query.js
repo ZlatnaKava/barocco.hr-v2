@@ -9,9 +9,15 @@ export const useLocationsData = () => {
             node {
               id
               acf {
-                adresa
-                google_map
                 telefon
+                google_map {
+                  address
+                  lat
+                  lng
+                  zoom
+                  name
+                  place_id
+                }
               }
               slug
               title

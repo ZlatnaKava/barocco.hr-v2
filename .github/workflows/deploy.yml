@@ -14,6 +14,7 @@ jobs:
         env:
           GATSBY_WP_BASE_URL: ${{ secrets.GATSBY_WP_BASE_URL }}
           GATSBY_WP_PROTOCOL: ${{ secrets.GATSBY_WP_PROTOCOL }}
+          REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.REACT_APP_GOOGLE_MAPS_API_KEY }}
         with:
           access-token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           deploy-branch: gh-pages
