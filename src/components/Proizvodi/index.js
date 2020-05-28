@@ -1,22 +1,30 @@
 import React from "react"
 import { useProductsData } from "./query"
 
-const Product = ({ title, content, acf, featured_media }) => (
+const Product = ({
+  title,
+  acf: {
+    slika_proizvoda: { source_url, alt_text },
+    opis_proizvoda,
+    pakovanje,
+    upotreba,
+  },
+}) => (
   <li className="item">
-    <img src={featured_media.source_url} alt={title} width="100%" />
+    <img src={source_url} alt={alt_text} width="100%" />
     <div className="info px-1 rounded-lg">
       <h2 className="text-xl">{title}</h2>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div dangerouslySetInnerHTML={{ __html: opis_proizvoda }} />
     </div>
     <ul className="tags">
-      {acf.pakovanje.map(size => (
+      {pakovanje.map(size => (
         <li key={size}>
           <span>{size}</span>
         </li>
       ))}
     </ul>
     <ul className="tags">
-      {acf.upotreba.map(size => (
+      {upotreba.map(size => (
         <li key={size}>
           <span>{size}</span>
         </li>

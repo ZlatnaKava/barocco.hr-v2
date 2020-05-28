@@ -1,33 +1,31 @@
 import { graphql, useStaticQuery } from "gatsby"
 
 export const useProductsData = () => {
-  const { allWordpressPage } = useStaticQuery(
+  const { allWordpressWpProizvod } = useStaticQuery(
     graphql`
       query {
-        allWordpressPage(filter: { template: { eq: "Proizvod.php" } }) {
+        allWordpressWpProizvod {
           edges {
             node {
               title
               acf {
+                opis_proizvoda
                 pakovanje
                 upotreba
-              }
-              featured_media {
-                alt_text
-                caption
-                title
-                media_details {
-                  height
-                  width
+                slika_proizvoda {
+                  alt_text
+                  media_details {
+                    height
+                    width
+                  }
+                  source_url
                 }
-                source_url
               }
-              content
             }
           }
         }
       }
     `
   )
-  return allWordpressPage
+  return allWordpressWpProizvod
 }

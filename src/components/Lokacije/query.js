@@ -1,26 +1,31 @@
 import { graphql, useStaticQuery } from "gatsby"
 
 export const useLocationsData = () => {
-  const { allWordpressPage } = useStaticQuery(
+  const { allWordpressWpLokacija } = useStaticQuery(
     graphql`
       query {
-        allWordpressPage(filter: { template: { eq: "Lokacija.php" } }) {
+        allWordpressWpLokacija {
           edges {
             node {
               id
               acf {
-                adresa
-                google_map
+                opis
                 telefon
+                google_map {
+                  address
+                  lat
+                  lng
+                  zoom
+                  place_id
+                }
               }
               slug
               title
-              content
             }
           }
         }
       }
     `
   )
-  return allWordpressPage
+  return allWordpressWpLokacija
 }
