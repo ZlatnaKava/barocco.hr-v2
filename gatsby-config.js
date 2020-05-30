@@ -13,6 +13,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-postcss`,
     {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: process.env.GOOGLE_TRACKING_ID,
+        head: false,
+        anonymize: true,
+      },
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         baseUrl: process.env.GATSBY_WP_BASE_URL,
