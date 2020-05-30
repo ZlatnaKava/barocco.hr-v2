@@ -13,11 +13,10 @@ module.exports = {
   plugins: [
     `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-plugin-gtag`,
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_TRACKING_ID,
-        head: false,
-        anonymize: true,
+        head: true,
       },
     },
     {

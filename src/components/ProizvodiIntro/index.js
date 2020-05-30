@@ -1,11 +1,11 @@
 import React from "react"
-import { useOnamaData } from "./query"
+import { useProductsIntro } from "./query"
 
-export default ({ goToSection }) => {
-  const { edges: onama } = useOnamaData()
+export default () => {
+  const { edges: intro } = useProductsIntro()
   const {
     node: { title, content },
-  } = onama[0]
+  } = intro[0]
   return (
     <>
       <div className="relative self-center max-w-full max-h-screen mb-10 md:max-w-6xl md:mb-14">
@@ -18,14 +18,6 @@ export default ({ goToSection }) => {
               className="px-3 pb-5"
               dangerouslySetInnerHTML={{ __html: content }}
             />
-            <div className="text-right">
-              <button
-                onClick={e => goToSection(e, 2)}
-                className="px-4 py-2 m-2 font-bold text-white border-none rounded-lg bg-barocco-yellow hover:bg-barocco-gold focus:on"
-              >
-                Proizvodi
-              </button>
-            </div>
           </div>
         </div>
       </div>

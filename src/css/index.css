@@ -1,16 +1,4 @@
 @tailwind base;
 @tailwind components;
-
-.section {
-  @apply text-center p-5 ;
-}
-
-.section .item {
-  @apply mb-5 pb-5 border-b border-dotted border-gray-500;
-}
-
-.section h2 {
-  @apply my-2 py-2 text-xl;
-}
-
+@import './custom-components.css';
 @tailwind utilities;
