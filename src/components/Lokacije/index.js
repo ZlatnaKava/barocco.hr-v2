@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
 import { useLocationsData } from "./query"
-
-const noop = () => null
+import SectionNavBtns from "../SectionNavBtns"
 
 const LokacijaMap = props => {
   let parallaxLocations
 
-  const [currentLocation, setCurrentLocation] = useState(0)
-
-  const goToLocation = (e, location) => {
-    e.preventDefault()
-    setCurrentLocation(location)
-  }
-
   useEffect(() => {
-    parallaxLocations.scrollTo(currentLocation)
-  }, [parallaxLocations, currentLocation, setCurrentLocation])
+    parallaxLocations.scrollTo(props.currentLocation)
+  }, [parallaxLocations, props.currentLocation])
 
   const { edges: locations } = useLocationsData()
 
   const onMarkerClick = (lat, lng, map) => {
-    console.log(lat, lng, map)
+    // console.log(lat, lng, map)
   }
 
   const mapStyle = []
@@ -36,12 +28,12 @@ const LokacijaMap = props => {
   return (
     <>
       <Parallax
-        pages={locations.length + 1}
+        pages={locations.length}
         scrolling={false}
         speed={1}
         horizontal
         ref={ref => (parallaxLocations = ref)}
-        className="-mx-2"
+        className="mx-0"
       >
         {locations.map(
           (
@@ -64,18 +56,20 @@ const LokacijaMap = props => {
           ) => {
             return (
               <ParallaxLayer
-                offset={i}
-                speed={0}
                 factor={1}
+                offset={i}
+                speed={1}
                 key={i}
                 i={i}
-                className="flex justify-center mx-auto"
+                className="flex justify-center mx-auto md:mx-0"
               >
-                <div className="relative self-center min-w-full md:mx-16 md:min-w-3/4 md:max-w-6xl">
-                  <div className="inline-block ml-0 md:ml-5">
-                    <h2 className="text-base md:text-xl">{title}</h2>
+                <div className="relative self-center min-w-full sm:mx-24 sm:min-w-3/4 sm:max-w-6xl">
+                  <div className="inline-block ml-2 md:ml-5">
+                    <h2 className="ml-10 text-base md:ml-5 md:text-xl">
+                      {title}
+                    </h2>
                   </div>
-                  <div className="p-3 mx-3 md:mx-5 md:p-4 card">
+                  <div className="p-3 mx-6 md:p-4 md:mx-5 card">
                     <div className="relative w-full min-h-300">
                       <Map
                         initialCenter={{
@@ -105,7 +99,7 @@ const LokacijaMap = props => {
                       </Map>
                     </div>
 
-                    <div className="w-full overflow-hidden">
+                    {/* <div className="w-full overflow-hidden">
                       {slika_1?.source_url && (
                         <img
                           src={slika_1.source_url}
@@ -141,41 +135,23 @@ const LokacijaMap = props => {
                           alt={slika_5.source_url}
                         />
                       )}
-                    </div>
+                    </div> */}
                     <div className="pt-5 text-center">
-                      {address && <div>adresa: {address}</div>}
-                      {telefon && <div>telefon: {telefon}</div>}
+                      {address && <div className="font-bold">{address}</div>}
+                      {telefon && (
+                        <div>
+                          tel: <a href={`tel:${telefon}`}>{telefon}</a>
+                        </div>
+                      )}
                       <div dangerouslySetInnerHTML={{ __html: opis }} />
                     </div>
                   </div>
-                  <div className="w-full">
-                    <button
-                      className={
-                        i === 0
-                          ? "hidden"
-                          : "text-sm bg-opacity-50 md:hover:bg-opacity-100 bg-barocco-gold text-white ml-8 md:ml-10 py-2 px-3 rounded-b-lg cursor-pointer self-start focus:outline-none border-none float-left"
-                      }
-                      onClick={e => goToLocation(e, currentLocation - 1)}
-                      onKeyPress={() => noop}
-                      role="link"
-                      tabIndex="0"
-                    >
-                      prethodna
-                    </button>
-                    <button
-                      className={
-                        i === locations.length - 1
-                          ? "hidden"
-                          : "text-sm bg-opacity-50 md:hover:bg-opacity-100 bg-barocco-gold text-white mr-8 md:mr-10 py-2 px-3 rounded-b-lg cursor-pointer self-end focus:outline-none border-none float-right"
-                      }
-                      onClick={e => goToLocation(e, currentLocation + 1)}
-                      onKeyPress={() => noop}
-                      role="link"
-                      tabIndex="0"
-                    >
-                      slijedeća
-                    </button>
-                  </div>
+                  <SectionNavBtns
+                    goTo={props.goToLocation}
+                    current={props.currentLocation}
+                    i={i}
+                    totalItems={locations.length}
+                  />
                 </div>
               </ParallaxLayer>
             )

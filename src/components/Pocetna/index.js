@@ -14,7 +14,10 @@ export default ({ goToSection }) => {
             tabIndex={0}
             aria-label="Dobrodošli"
             className="absolute top-0 bottom-0 z-10 w-full h-full border-transparent cursor-pointer md:border-8 hover:border-white hover:border-opacity-25 focus:outline-none"
-            style={{ width: "352px", height: "352px" }}
+            style={{
+              width: "352px",
+              height: "352px",
+            }}
           ></div>
           <img
             src={"../../prva.png"}

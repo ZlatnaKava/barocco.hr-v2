@@ -10,6 +10,13 @@ module.exports = {
         "barocco-gold": "#9a6703",
         "barocco-red": "#cc3300",
       },
+      fill: {
+        "white": "#FFFFFF",
+        "barocco-yellow": "#d3aa20",
+        "barocco-gold": "#9a6703",
+        "barocco-red": "#cc3300",
+      },
+
       minWidth: {
         "0": "0",
         "1/4": "25%",
@@ -42,14 +49,24 @@ module.exports = {
         full: "100%",
         "1/2": "50%",
         "1/3": "33.33%",
+        "2/3": "66.66%",
         "1/4": "25%",
+        "3/4": "75%",
         "1/5": "20%",
+        "2/5": "40%",
+        "3/5": "60%",
+        "4/5": "80%",
       },
       spacing: {
+        "1/2": "50%",
         "1/3": "33.33%",
         "2/3": "66.66%",
         "1/4": "25%",
         "3/4": "75%",
+        "1/5": "20%",
+        "2/5": "40%",
+        "3/5": "60%",
+        "4/5": "80%",
       },
       screens: {
         dark: { raw: "(prefers-color-scheme: dark)" },
@@ -88,7 +105,7 @@ module.exports = {
         },
       },
       opacity: {
-        "easter-egg": "0.15",
+        "easter-egg": "0.05",
       },
     },
   },

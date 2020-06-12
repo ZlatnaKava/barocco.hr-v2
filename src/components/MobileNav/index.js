@@ -3,11 +3,16 @@ import EasterEgg from "../EasterEgg"
 
 const noop = () => null
 
-const MobileNav = ({ toggleMenu, isMenuActive, goToSection }) => {
+const MobileNav = ({
+  currentSection,
+  toggleMenu,
+  isMenuActive,
+  goToSection,
+}) => {
   return (
     <>
       <button
-        className="absolute top-0 right-0 z-50 p-5 focus:outline-none md:hidden"
+        className="absolute top-0 right-0 z-50 p-5 focus:outline-none"
         onClick={toggleMenu}
       >
         {isMenuActive ? (
@@ -28,14 +33,19 @@ const MobileNav = ({ toggleMenu, isMenuActive, goToSection }) => {
       </button>
 
       <div
-        className={`absolute overflow-hidden inset-0 z-10 ${
+        className={`absolute overflow-hidden inset-0 z-40 ${
           isMenuActive ? "bg-black bg-opacity-50" : "left-full"
         }`}
         onClick={isMenuActive ? toggleMenu : noop}
+        onKeyPress={() => noop}
+        role="button"
+        tabIndex="0"
       >
         <nav
-          className={`w-full z-40 h-full transform transition-all duration-200 ease-in-out bgText shadow-xl rounded-tl-lg rounded-bl-lg ${
-            isMenuActive ? "translate-x-1/3" : "translate-x-full"
+          className={`w-full z-50 h-full transform transition-all duration-200 ease-in-out bgText shadow-xl ${
+            isMenuActive
+              ? "translate-x-1/3 md:translate-x-1/2 lg:translate-x-3/4"
+              : "translate-x-full"
           }`}
         >
           <div
@@ -47,7 +57,6 @@ const MobileNav = ({ toggleMenu, isMenuActive, goToSection }) => {
               <span className="font-bold">Zlatna Kava d.o.o. 2020</span>
             </div>
           </div>
-          <EasterEgg goToSection={goToSection} />
           <img
             className="absolute m-5"
             src={"../../BaroccoCaffeeLogo.png"}
@@ -55,47 +64,57 @@ const MobileNav = ({ toggleMenu, isMenuActive, goToSection }) => {
             alt="Barocco Caffee"
             title="Barocco Caffee"
           />
-          <ul className="flex flex-col justify-center h-full p-5 text-2xl text-black">
-            <li className="border-t border-b border-gray-500 border-dotted">
+          <ul className="flex flex-col justify-center h-full p-5 text-2xl text-black bgText">
+            <li>
               <a
                 href="#pocetna"
-                className="block py-2"
+                className={`block py-2 px-4 ${
+                  currentSection === 0 ? "bg-barocco-red text-white" : ""
+                }`}
                 onClick={e => goToSection(e, 0)}
               >
                 Početna
               </a>
             </li>
-            <li className="border-b border-gray-500 border-dotted">
+            <li>
               <a
                 href="#o-nama"
-                className="block py-2"
+                className={`block py-2 px-4 ${
+                  currentSection === 1 ? "bg-barocco-red text-white" : ""
+                }`}
                 onClick={e => goToSection(e, 1)}
               >
                 O nama
               </a>
             </li>
-            <li className="border-b border-gray-500 border-dotted">
+            <li>
               <a
                 href="#proizvodi"
-                className="block py-2"
+                className={`block py-2 px-4 ${
+                  currentSection === 2 ? "bg-barocco-red text-white" : ""
+                }`}
                 onClick={e => goToSection(e, 2)}
               >
                 Proizvodi
               </a>
             </li>
-            <li className="border-b border-gray-500 border-dotted">
+            <li>
               <a
                 href="#lokacije"
-                className="block py-2"
+                className={`block py-2 px-4 ${
+                  currentSection === 3 ? "bg-barocco-red text-white" : ""
+                }`}
                 onClick={e => goToSection(e, 3)}
               >
                 Lokacije
               </a>
             </li>
-            <li className="border-b border-gray-500 border-dotted">
+            <li>
               <a
                 href="#kontakt"
-                className="block py-2"
+                className={`block py-2 px-4 ${
+                  currentSection === 4 ? "bg-barocco-red text-white" : ""
+                }`}
                 onClick={e => goToSection(e, 4)}
               >
                 Kontakt
@@ -104,6 +123,7 @@ const MobileNav = ({ toggleMenu, isMenuActive, goToSection }) => {
           </ul>
         </nav>
       </div>
+      {isMenuActive && <EasterEgg goToSection={goToSection} />}
     </>
   )
 }

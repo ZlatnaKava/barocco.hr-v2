@@ -1,7 +1,6 @@
 import React from "react"
 import { ParallaxLayer } from "react-spring/renderprops-addons"
-
-const noop = () => null
+import SectionNavBtns from "../SectionNavBtns"
 
 const Product = ({
   title,
@@ -12,30 +11,23 @@ const Product = ({
     upotreba,
   },
   i,
-  goToProduct,
+  goTo,
+  current,
+  totalItems,
 }) => (
   <ParallaxLayer
+    factor={1}
     offset={i + 1}
     speed={1}
-    factor={1}
     className="flex justify-center mx-auto"
   >
     <div className="relative self-center max-w-md mb-10 xl:max-w-lg md:mb-14">
       <div className="flex justify-between">
         <div className="w-full">
-          <h2 className="inline-block text-base md:text-xl">{title}</h2>
-        </div>
-        <div
-          className="self-end px-3 py-1 mr-8 text-sm text-white bg-opacity-50 border-none rounded-t-lg cursor-pointer md:hover:bg-opacity-100 bg-barocco-gold md:mr-10 focus:outline-none"
-          onClick={e => goToProduct(e, 0)}
-          onKeyPress={() => noop}
-          role="button"
-          tabIndex="0"
-        >
-          x
+          <h2 className="ml-10 md:text-xl">{title}</h2>
         </div>
       </div>
-      <div className="max-w-md p-3 mx-3 lg:max-w-xl md:mx-5 md:p-4 card">
+      <div className="max-w-md p-3 mx-6 md:mx-5 lg:max-w-xl md:p-4 card">
         <div className="relative">
           <img
             src={source_url}
@@ -66,11 +58,18 @@ const Product = ({
         </div>
         <div className="px-1 rounded-lg info">
           <div
-            className="py-3 md:py-5 tablet-landscape:hidden mobile-portrait-iPhone-6:hidden mobile-portrait-iPhone-6plus:hidden lg:block"
+            className="pt-3 md:pt-5 lg:block"
             dangerouslySetInnerHTML={{ __html: opis_proizvoda }}
           />
         </div>
       </div>
+      <SectionNavBtns
+        goTo={goTo}
+        current={current}
+        i={i}
+        totalItems={totalItems}
+        intro={true}
+      />
     </div>
   </ParallaxLayer>
 )
