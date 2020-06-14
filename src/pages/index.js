@@ -1,5 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
+import { graphql } from "gatsby"
+import Div100vh from "react-div-100vh"
 import Lokacije from "../components/Lokacije"
 import Proizvodi from "../components/Proizvodi"
 import Onama from "../components/Onama"
@@ -9,17 +11,16 @@ import Beans from "../components/Beans"
 import Pocetna from "../components/Pocetna"
 import RotateAlert from "../components/RotateAlert"
 import SectionNav from "../components/SectionNav"
-import { useViewport } from "../utils"
 
-const SWIPE_BUFFER = 50
-const MAX_SECTIONS = 5
-const MAX_PRODUCTS = 10
-const MAX_LOCATIONS = 5
-const SECTION_PRODUCTS_ID = 2
-const SECTION_LOCATION_ID = 3
-
-export default () => {
+export default ({ data }) => {
   let parallax = {}
+
+  const SWIPE_BUFFER = 50
+  const MAX_SECTIONS = 5
+  const MAX_PRODUCTS = data.productsTotal.totalCount + 1 // + intro
+  const MAX_LOCATIONS = data.locationsTotal.totalCount
+  const SECTION_PRODUCTS_ID = 2
+  const SECTION_LOCATION_ID = 3
 
   const [isMenuActive, setMenuActive] = useState(false)
   const [currentSection, setCurrentSection] = useState(0)
@@ -31,10 +32,6 @@ export default () => {
   const [swipeRight, setSwipeRight] = useState(false)
   const [swipeUp, setSwipeUp] = useState(false)
   const [swipeDown, setSwipeDown] = useState(false)
-
-  const { height, width } = useViewport()
-
-  console.log("height, width", height, width)
 
   const toggleMenu = useCallback(() => {
     setMenuActive(menuActive => !menuActive)
@@ -112,6 +109,8 @@ export default () => {
       currentSection,
       goToProduct,
       goToLocation,
+      MAX_LOCATIONS,
+      MAX_PRODUCTS,
     ]
   )
 
@@ -147,8 +146,19 @@ export default () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clientX, clientY, swipeLeft, swipeRight])
 
+  useEffect(() => {
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty("--vh", `${vh}px`)
+
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty("--vh", `${vh}px`)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
-    <>
+    <Div100vh>
       <div className="hidden mobile-landscape-iPhone-x:block mobile-landscape-iPhone-6:block mobile-landscape-iPhone-6plus:block">
         <RotateAlert />
       </div>
@@ -250,6 +260,18 @@ export default () => {
           </ParallaxLayer>
         </Parallax>
       </div>
-    </>
+    </Div100vh>
   )
 }
+
+export const query = graphql`
+  # query will go here
+  query allTotals {
+    locationsTotal: allWordpressWpLokacija {
+      totalCount
+    }
+    productsTotal: allWordpressWpProizvod {
+      totalCount
+    }
+  }
+`

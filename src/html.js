@@ -3,11 +3,7 @@ import PropTypes from "prop-types"
 
 export default function HTML(props) {
   return (
-    <html
-      {...props.htmlAttributes}
-      className="fixed overflow-hidden"
-      style={{ height: "-webkit-fill-available" }}
-    >
+    <html {...props.htmlAttributes} className="fixed overflow-hidden">
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -20,11 +16,6 @@ export default function HTML(props) {
       <body
         {...props.bodyAttributes}
         className="fixed overflow-hidden bg-barocco-yellow"
-        style={{
-          height: "100vh",
-          height: 'calc(var(--vh, 1vh) * 100)';
-          minHeight: "-webkit-fill-available",
-        }}
       >
         {props.preBodyComponents}
         <div
@@ -32,9 +23,6 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
           className="w-screen overflow-y-scroll scrolling-touch"
-          style={{
-            minHeight: "-webkit-fill-available",
-          }}
         />
         {props.postBodyComponents}
       </body>
