@@ -11,7 +11,9 @@ const SectionNav = ({ goTo, current, type, totalItems }) => {
         <ul className="flex flex-col">
           {[...Array(totalItems)].map((e, i) => (
             <li className={`${current === i ? "current" : ""}`} key={i}>
-              <button onClick={e => goTo(e, i)}>item {i}</button>
+              <button onClick={e => goTo(e, i)} role="link" tabIndex="0">
+                item {i}{" "}
+              </button>
             </li>
           ))}
         </ul>

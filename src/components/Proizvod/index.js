@@ -1,4 +1,5 @@
 import React from "react"
+import LazyLoad from "react-lazyload"
 import { ParallaxLayer } from "react-spring/renderprops-addons"
 import SectionNavBtns from "../SectionNavBtns"
 

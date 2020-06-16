@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
 import { graphql } from "gatsby"
+import SEO from "../components/SEO"
 import Div100vh from "react-div-100vh"
 import Lokacije from "../components/Lokacije"
 import Proizvodi from "../components/Proizvodi"
@@ -159,10 +160,7 @@ export default ({ data }) => {
 
   return (
     <Div100vh>
-      <div className="hidden mobile-landscape-iPhone-x:block mobile-landscape-iPhone-6:block mobile-landscape-iPhone-6plus:block">
-        <RotateAlert />
-      </div>
-
+      <SEO />
       <div
         className="mobile-landscape-iPhone-x:hidden mobile-landscape-iPhone-6:hidden mobile-landscape-iPhone-6plus:hidden"
         onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
@@ -259,6 +257,9 @@ export default ({ data }) => {
             </div>
           </ParallaxLayer>
         </Parallax>
+      </div>
+      <div className="hidden mobile-landscape-iPhone-x:block mobile-landscape-iPhone-6:block mobile-landscape-iPhone-6plus:block">
+        <RotateAlert />
       </div>
     </Div100vh>
   )

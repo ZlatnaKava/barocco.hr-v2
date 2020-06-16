@@ -1,5 +1,4 @@
 import React from "react"
-
 const noop = () => null
 
 export default ({ goToSection }) => {

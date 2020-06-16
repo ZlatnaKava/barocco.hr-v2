@@ -11,15 +11,15 @@ const Beans = () => {
         style={{ pointerEvents: "none", opacity: 0.07 }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "70%" }}
           className="w-bean-small"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "5%" }}
           className="w-bean-medium"
@@ -33,15 +33,15 @@ const Beans = () => {
         style={{ pointerEvents: "none", opacity: 0.07 }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "75%" }}
           className="w-bean-medium"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "25%" }}
           className="w-bean-medium"
@@ -55,15 +55,15 @@ const Beans = () => {
         style={{ opacity: 0.07 }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "75%" }}
           className="w-bean-small"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "15%" }}
           className="w-bean-medium"
@@ -77,37 +77,32 @@ const Beans = () => {
         style={{ opacity: 0.07 }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "80%" }}
           className="w-bean-medium"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "20%" }}
           className="w-bean-medium"
         />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={2}
-        factor={1}
-        speed={1}
-        style={{ opacity: 0.07 }}
-      >
+      <ParallaxLayer offset={2} factor={1} speed={1} style={{ opacity: 0.07 }}>
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "60%" }}
           className="w-bean-small"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "10%" }}
           className="w-bean-medium"
@@ -121,15 +116,15 @@ const Beans = () => {
         style={{ opacity: 0.05 }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "5%" }}
           className="w-bean-small"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "75%" }}
           className="w-bean-medium"
@@ -143,15 +138,15 @@ const Beans = () => {
         style={{ opacity: 0.07 }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "60%" }}
           className="w-bean-medium"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "80%" }}
           className="w-bean-medium"
@@ -165,15 +160,15 @@ const Beans = () => {
         style={{ opacity: 0.07 }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "10%" }}
           className="w-bean-medium"
         />
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "60%" }}
           className="w-bean-medium"
@@ -193,16 +188,16 @@ const Beans = () => {
         }}
       >
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "20%" }}
           className="w-bean-small"
         />
 
         <img
-          alt=""
-          title=""
+          alt="Coffee Bean"
+          title="Coffee Bean"
           src={"../../coffee-bean.svg"}
           style={{ marginLeft: "60%" }}
           className="w-bean-big"

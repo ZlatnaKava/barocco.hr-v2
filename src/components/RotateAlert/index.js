@@ -2,12 +2,11 @@ import React from "react"
 
 const RotateAlert = () => {
   return (
-    <div className="flex justify-center flex-wrap mx-auto content-center absolute m-auto w-full h-full">
-      <div className="min-w-0 max-w-sm mx-16 p-3 md:p-4 bgText rounded-lg shadow-xl self-center relative text-center">
+    <div className="absolute flex flex-wrap content-center justify-center w-full h-full m-auto mx-auto">
+      <div className="relative self-center max-w-sm min-w-0 p-3 mx-16 text-center rounded-lg shadow-xl md:p-4 bgText">
         <img
           className="mx-auto mt-5"
           src={"../../RotateAlert.png"}
-          width="120"
           alt="Rotate Alert"
           title="Rotate Alert"
         />

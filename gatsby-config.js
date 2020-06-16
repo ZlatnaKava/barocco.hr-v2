@@ -12,6 +12,7 @@ module.exports = {
   pathPrefix: "/barocco.hr-v2",
   plugins: [
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -41,7 +42,7 @@ module.exports = {
         // on every Gatsby route change.
         //
         // Defaults to gatsby-route-change
-        routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+        // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
       },
     },
     {

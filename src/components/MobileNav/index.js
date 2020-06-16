@@ -14,6 +14,8 @@ const MobileNav = ({
       <button
         className="absolute top-0 right-0 z-50 p-5 focus:outline-none"
         onClick={toggleMenu}
+        tabIndex="0"
+        aria-label="menu"
       >
         {isMenuActive ? (
           <svg className="w-6 h-6" viewBox="0 0 24 24">
@@ -40,6 +42,7 @@ const MobileNav = ({
         onKeyPress={() => noop}
         role="button"
         tabIndex="0"
+        aria-label="menu-background"
       >
         <nav
           className={`w-full z-50 h-full transform transition-all duration-200 ease-in-out bgText shadow-xl ${
