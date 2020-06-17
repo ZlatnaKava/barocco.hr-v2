@@ -1,5 +1,5 @@
 import React from "react"
-import LazyLoad from "react-lazyload"
+// import LazyLoad from "react-lazyload"
 
 const noop = () => null
 
@@ -10,25 +10,20 @@ const ProductNav = ({
   i,
   goToProduct,
   currentProduct,
+  currentSection,
 }) => (
   <div
-    className="relative outline-none cursor-pointer"
+    className={`${
+      currentProduct === i + 1 && currentSection === 2
+        ? "border-b-2 border-barocco-red shadow-sm"
+        : "border-b-2 border-transparent"
+    } relative inline-block w-1/4 pb-1 md:p-2 outline-none cursor-pointer md:w-1/4 lg:w-1/5`}
     onClick={e => goToProduct(e, i + 1)}
     onKeyPress={() => noop}
     role="button"
     tabIndex="0"
   >
-    <LazyLoad overflow={true}>
-      <img
-        src={source_url}
-        title={alt_text}
-        alt={alt_text}
-        className="w-full"
-      />
-    </LazyLoad>
-    {currentProduct === i + 1 && (
-      <div className="absolute bottom-0 w-full -mb-2 border md:border-2 border-barocco-yellow"></div>
-    )}
+    <img src={source_url} title={alt_text} alt={alt_text} />
   </div>
 )
 

@@ -22,7 +22,7 @@ export default function HTML(props) {
           key={`body`}
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
-          className="w-screen overflow-y-scroll scrolling-touch"
+          className="w-screen overflow-y-scroll scrolling-touch outline-none"
         />
         {props.postBodyComponents}
       </body>

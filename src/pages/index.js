@@ -52,12 +52,14 @@ export default ({ data }) => {
     if (e) e.preventDefault()
     // console.log("product", product)
     setCurrentProduct(product)
+    setCurrentSection(SECTION_PRODUCTS_ID)
   }, [])
 
   const goToLocation = useCallback((e, location) => {
     if (e) e.preventDefault()
     // console.log("location", location)
     setCurrentLocation(location)
+    setCurrentSection(SECTION_LOCATION_ID)
   }, [])
 
   const swipeUpDown = useCallback(
@@ -171,6 +173,10 @@ export default ({ data }) => {
           isMenuActive={isMenuActive}
           goToSection={goToSection}
           currentSection={currentSection}
+          goToProduct={goToProduct}
+          currentProduct={currentProduct}
+          goToLocation={goToLocation}
+          currentLocation={currentLocation}
         />
 
         <SectionNav

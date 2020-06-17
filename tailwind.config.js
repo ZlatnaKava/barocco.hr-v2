@@ -11,7 +11,7 @@ module.exports = {
         "barocco-red": "#cc3300",
       },
       fill: {
-        "white": "#FFFFFF",
+        white: "#FFFFFF",
         "barocco-yellow": "#d3aa20",
         "barocco-gold": "#9a6703",
         "barocco-red": "#cc3300",
@@ -42,6 +42,9 @@ module.exports = {
         "bean-small": "100px",
         "bean-medium": "200px",
         "bean-big": "200px",
+        "menu-small": "300px",
+        "menu-medium": "400px",
+        "menu-big": "600px",
       },
       inset: {
         "0": 0,
@@ -67,6 +70,9 @@ module.exports = {
         "2/5": "40%",
         "3/5": "60%",
         "4/5": "80%",
+        "menu-small": "-300px",
+        "menu-medium": "-400px",
+        "menu-big": "-600px",
       },
       screens: {
         dark: { raw: "(prefers-color-scheme: dark)" },

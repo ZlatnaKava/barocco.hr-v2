@@ -1,5 +1,5 @@
 import React from "react"
-import LazyLoad from "react-lazyload"
+// import LazyLoad from "react-lazyload"
 import { ParallaxLayer } from "react-spring/renderprops-addons"
 import SectionNavBtns from "../SectionNavBtns"
 
@@ -22,13 +22,13 @@ const Product = ({
     speed={1}
     className="flex justify-center mx-auto"
   >
-    <div className="relative self-center max-w-md mb-10 xl:max-w-lg md:mb-14">
+    <div className="relative self-center max-w-md mb-10 xl:max-w-xl md:mb-14">
       <div className="flex justify-between">
         <div className="w-full">
           <h2 className="ml-10 md:text-xl">{title}</h2>
         </div>
       </div>
-      <div className="max-w-md p-3 mx-6 md:mx-5 lg:max-w-xl md:p-4 card">
+      <div className="max-w-md p-3 mx-6 md:mx-5 lg:max-w-2xl md:p-4 card">
         <div className="relative">
           <img
             src={source_url}

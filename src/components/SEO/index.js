@@ -34,8 +34,12 @@ const SEO = ({
           content: "website",
         },
         {
+          property: `og:url`,
+          content: "http://barocco-v2.netlify.app/",
+        },
+        {
           name: `twitter:card`,
-          content: "summary_large_image",
+          content: featuredImage,
         },
         {
           name: `twitter:title`,
