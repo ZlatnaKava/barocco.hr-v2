@@ -6,7 +6,7 @@ import Div100vh from "react-div-100vh"
 import Lokacije from "../components/Lokacije"
 import Proizvodi from "../components/Proizvodi"
 import Onama from "../components/Onama"
-import Kontakt from "../components/Kontakt"
+import KontaktEmail from "../components/KontaktEmail"
 import MobileNav from "../components/MobileNav"
 import Beans from "../components/Beans"
 import Pocetna from "../components/Pocetna"
@@ -249,7 +249,7 @@ export default ({ data }) => {
             factor={1}
             className="flex justify-center align-middle section"
           >
-            <Kontakt />
+            <KontaktEmail />
           </ParallaxLayer>
           <ParallaxLayer
             offset={5}
